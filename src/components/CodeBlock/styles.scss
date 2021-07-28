@@ -1,0 +1,13 @@
+.code-block {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  padding: 24px;
+  border-radius: 4px;
+  background: #222;
+  transition: ease 0.2s all;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
