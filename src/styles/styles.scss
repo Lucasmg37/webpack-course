@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  img {
+    height: 64px;
+    width: auto;
+  }
+
+  h1 {
+    font-weight: 300;
+  }
+}
+
+.title-section {
+  padding: 16px 0;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-right: 24px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}

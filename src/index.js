@@ -1,24 +1,39 @@
 import CodeBlock from "./components/CodeBlock";
+import Div from "./components/HTML/Div";
+import H1 from "./components/HTML/H1";
+import Header from "./components/HTML/Header";
 import Image from "./components/Image";
 import Log from "./components/Log";
-import Title from "./components/Title";
 
-const title = new Title();
+import './styles/global.scss';
+import './styles/styles.scss';
+
 const log = new Log();
 const image = new Image();
 const code = new CodeBlock();
 
-title.create("Webpack Course");
-log.create("npm init -y");
-log.create("npm install webpack webpack-cli --save-dev");
+const header = new Header();
+const h1Header = new H1("Webpack Course");
+header.element.appendChild(image.getImgBrand());
+header.element.appendChild(h1Header.getElement());
+header.render();
 
-log.create("Add script to Run Build by Webpack");
-log.create("Create webpack file");
+function generateTitle(text) {
+  const div = new Div('title-section');
+  const h1 = new H1(text);
+  h1.render(div.getElement());
+  div.render();
+}
 
-log.create("npm install --save-dev style-loader css-loader");
-log.create("npm install --save-dev file-loader");
+generateTitle("🚀 Get Started");
 
-log.create("npm install --save-dev sass-loader node-sass");
+code.create(log.create("npm init -y"));
+code.create(log.create("npm install webpack webpack-cli --save-dev"));
 
-image.addImage();
-code.create();
+// log.create("Add script to Run Build by Webpack");
+// log.create("Create webpack file");
+
+
+code.create(log.create("npm install --save-dev style-loader css-loader"));
+code.create(log.create("npm install --save-dev file-loader"));
+code.create(log.create("npm install --save-dev sass-loader node-sass"));

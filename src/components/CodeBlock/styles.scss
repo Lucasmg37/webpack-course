@@ -1,13 +1,28 @@
 .code-block {
   display: flex;
-  min-height: 50px;
+  min-height: 100px;
   align-items: center;
   padding: 24px;
   border-radius: 4px;
-  background: #222;
-  transition: ease 0.2s all;
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
 
-  &:hover {
-    transform: scale(1.01);
+  button {
+    background: none;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    opacity: 0.2;
+    transition: ease 0.2s all;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }

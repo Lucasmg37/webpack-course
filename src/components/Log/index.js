@@ -3,7 +3,7 @@ class Log {
     const p = document.createElement('p');
     p.innerHTML = text;
     p.classList.add('log-item');
-    document.body.appendChild(p);
+    return p;
   }
 }
 export default Log;
