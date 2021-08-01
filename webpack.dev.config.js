@@ -2,23 +2,23 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DotEnvPlugin = require('dotenv-webpack');
-const TerserPlugin = require('terser-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpack = require('webpack');
-
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].[contenthash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  mode: 'production',
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()]
+  mode: 'development',
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+    index: 'index.html',
+    port: 8000,
+    historyApiFallback: { index: 'index.html' }
   },
   module: {
     rules: [
@@ -47,12 +47,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.html/,
-        use: 'html-loader'
-      },
-      {
         test: /\.ttf/,
         use: 'url-loader'
+      },
+      {
+        test: /\.html/,
+        use: 'html-loader'
       },
       {
         test: /\.m?js$/,
@@ -70,7 +70,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: 'styles.css'
     }),
     new webpack.DefinePlugin({
       VERSION: JSON.stringify('1.0.0')

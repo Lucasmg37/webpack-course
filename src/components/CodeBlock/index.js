@@ -4,13 +4,17 @@ import Img from '../HTML/Img';
 
 import clipboardIcon from '../../assets/icons/clipboard.svg';
 import './styles.scss';
+
 class CodeBlock {
   create(elem) {
-    const div = new Div('code-block', [elem]);
-    div.render();
+    const pre = document.createElement('pre');
+    pre.appendChild(elem);
 
+    const div = new Div('code-block', [pre]);
     const imgClip = new Img(clipboardIcon).getElement();
     div.addChildren(new Button('clipboard', [imgClip]).getElement());
+
+    div.render();
   }
 }
 
